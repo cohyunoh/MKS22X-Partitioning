@@ -8,8 +8,33 @@ public class Partition{
    *@return the index of the final position of the pivot element.
    */
   public static int partition ( int [] data, int start, int end){
-    int pivotIndex = (int)(Math.random() * 10) % data.length;
-
+    int pivotIndex = ((int)(Math.random() * 10) % end) + start;
+    int first =  data[start];
+    data[start] = data[pivotIndex];
+    data[pivotIndex] = first;
+    pivotIndex = start;
+    int i = start + 1;
+    int tempEnd = end;
+    while(i <= tempEnd){
+      if(data[i] > data[tempEnd]){
+        int temp =  data[tempEnd];
+        data[tempEnd] = data[i];
+        data[i] = temp;
+        i ++;
+        tempEnd --;
+      }else{
+        tempEnd --;
+      }
+    }
+    for(int c = start; c <= end; c++){
+      if(data[c] > data[pivotIndex]){
+        int temp = data[c-1];
+        data[c - 1] = data[pivotIndex];
+        data[pivotIndex] = temp;
+        pivotIndex = c - 1;
+        return pivotIndex;
+      }
+    }
 
     return pivotIndex;
   }
