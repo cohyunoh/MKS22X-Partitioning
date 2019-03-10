@@ -16,19 +16,19 @@ public class Partition{
     data[start] = data[pivotIndex];
     data[pivotIndex] = first;
     pivotIndex = start;
-    int i = start + 1;
+    int tempStart = start + 1;
     int tempEnd = end;
-    while(i <= tempEnd){
-      if(data[i] > data[pivotIndex] && data[pivotIndex] > data[tempEnd]){
-        int temp =  data[tempEnd];
-        data[tempEnd] = data[i];
-        data[i] = temp;
-        i ++;
-        tempEnd --;
-      }else{
+    while(tempStart <= tempEnd){
+      if(data[tempStart] > data[pivotIndex]){
+        int temp = data[tempStart];
+        data[tempStart] = data[tempEnd];
+        data[tempEnd] = temp;
         tempEnd --;
       }
-      System.out.println(toString(data));
+      if(data[tempStart] < data[pivotIndex]){
+        tempStart ++;
+      }
+      //System.out.println(toString(data));
     }
     for(int c = start; c <= end; c++){
       if(data[c] > data[pivotIndex]){
