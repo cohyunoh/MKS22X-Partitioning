@@ -7,20 +7,14 @@ public class Partition{
    *4. all elements in range that are larger than the pivot element are placed after the pivot element.
    *@return the index of the final position of the pivot element.
    */
-  public int partition ( int [] data, int start, int end){
-    int pivotIndex = Math.random() * 10 % data.length;
-    int first = data[start];
-    data[start] = data[pivotIndex];
-    data[pivotIndex] = first;
-    pivotIndex = start;
-    for(int i = 1; i < end; i++){
-      int index = Math.random() * 10 % end + i;
-      if(data[index] < data[pivotIndex]){
-        int less = data[index];
-        data[index] = data[pivotIndex];
-        data[pivotIndex] = less;
-        pivotIndex = index;
-      }else if(data[index] < data[pivotIndex])
-    }
+  public static int partition ( int [] data, int start, int end){
+    int pivotIndex = (int)(Math.random() * 10) % data.length;
+
+
+    return pivotIndex;
+  }
+  public static void main(String[] args) {
+    int[] data1 = {10, 80, 30, 90, 40, 50, 70};
+    System.out.println(partition(data1, 0 , 6));
   }
 }
