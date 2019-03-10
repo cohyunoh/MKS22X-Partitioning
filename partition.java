@@ -19,7 +19,7 @@ public class Partition{
     int i = start + 1;
     int tempEnd = end;
     while(i <= tempEnd){
-      if(data[i] > data[tempEnd]){
+      if(data[i] > data[pivotIndex] && data[pivotIndex] > data[tempEnd]){
         int temp =  data[tempEnd];
         data[tempEnd] = data[i];
         data[i] = temp;
@@ -28,6 +28,7 @@ public class Partition{
       }else{
         tempEnd --;
       }
+      System.out.println(toString(data));
     }
     for(int c = start; c <= end; c++){
       if(data[c] > data[pivotIndex]){
