@@ -28,7 +28,7 @@ public class Partition{
         data[tempStart] = data[tempEnd];
         data[tempEnd] = temp;
         tempEnd --;
-      }else if(data[tempStart] < data[pivotIndex]){
+      }else if(data[tempStart] <= data[pivotIndex]){
         tempStart ++;
       }
       //System.out.println("Start: " + tempStart);
@@ -56,8 +56,8 @@ public class Partition{
     return ans;
   }
   public static void main(String[] args) {
-    int[] data1 = {10, 80, 30, 90, 40, 50, 70};
-    System.out.println(partition(data1, 0 , 6));
-    System.out.println(toString(data1));
+    int[] data2 = {6, 3, 7, -1, 7, 4, 10, -21};
+    System.out.println(partition(data2, 2, 7));
+    System.out.println(toString(data2));
   }
 }
