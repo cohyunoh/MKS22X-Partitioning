@@ -8,7 +8,10 @@ public class Partition{
    *@return the index of the final position of the pivot element.
    */
   public static int partition ( int [] data, int start, int end){
-    int pivotIndex = ((int)(Math.random() * 10) % end) + start;
+    int pivotIndex = ((int)(Math.random() * 10) % end);
+    while(pivotIndex < start){
+      pivotIndex ++;
+    }
     int first =  data[start];
     data[start] = data[pivotIndex];
     data[pivotIndex] = first;
