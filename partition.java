@@ -18,29 +18,35 @@ public class Partition{
     pivotIndex = start;
     int tempStart = start + 1;
     int tempEnd = end;
-    while(tempStart <= tempEnd){
+    System.out.println(pivotIndex);
+    while(tempStart != tempEnd){
+      System.out.println("Start: " + tempStart);
+      System.out.println("End: " + tempEnd);
+      System.out.println(toString(data));
       if(data[tempStart] > data[pivotIndex]){
         int temp = data[tempStart];
         data[tempStart] = data[tempEnd];
         data[tempEnd] = temp;
         tempEnd --;
-      }
-      if(data[tempStart] < data[pivotIndex]){
+      }else if(data[tempStart] < data[pivotIndex]){
         tempStart ++;
       }
-      //System.out.println(toString(data));
+      System.out.println("Start: " + tempStart);
+      System.out.println("End: " + tempEnd);
+      System.out.println(toString(data));
     }
-    for(int c = start; c <= end; c++){
+    for(int c = start + 1; c < end + 1; c++){
       if(data[c] > data[pivotIndex]){
-        int temp = data[c-1];
+        int temp = data[c - 1];
         data[c - 1] = data[pivotIndex];
         data[pivotIndex] = temp;
-        pivotIndex = c - 1;
-        return pivotIndex;
+        return c - 1;
       }
     }
-
-    return pivotIndex;
+    int temp = data[end];
+    data[end] = data[pivotIndex];
+    data[pivotIndex] = temp;
+    return end;
   }
   public static String toString(int[] inpt){
     String ans = "";
