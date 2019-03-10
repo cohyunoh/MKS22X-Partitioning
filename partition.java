@@ -11,10 +11,7 @@ public class Partition{
     if(end == 0){
       return 0;
     }
-    int pivotIndex = ((int)(Math.random() * 10) % end);
-    while(pivotIndex < start){
-      pivotIndex ++;
-    }
+    int pivotIndex = ((int)(Math.random() * 10) % (end + 1 - start)) + start;
     int first =  data[start];
     data[start] = data[pivotIndex];
     data[pivotIndex] = first;
@@ -44,8 +41,16 @@ public class Partition{
 
     return pivotIndex;
   }
+  public static String toString(int[] inpt){
+    String ans = "";
+    for(int i = 0; i < inpt.length; i++){
+      ans += inpt[i] + " ";
+    }
+    return ans;
+  }
   public static void main(String[] args) {
     int[] data1 = {10, 80, 30, 90, 40, 50, 70};
     System.out.println(partition(data1, 0 , 6));
+    System.out.println(toString(data1));
   }
 }
