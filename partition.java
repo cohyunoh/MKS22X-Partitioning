@@ -18,11 +18,11 @@ public class Partition{
     pivotIndex = start;
     int tempStart = start + 1;
     int tempEnd = end;
-    System.out.println(pivotIndex);
+    //System.out.println(pivotIndex);
     while(tempStart != tempEnd){
-      System.out.println("Start: " + tempStart);
-      System.out.println("End: " + tempEnd);
-      System.out.println(toString(data));
+      //System.out.println("Start: " + tempStart);
+      //System.out.println("End: " + tempEnd);
+      //System.out.println(toString(data));
       if(data[tempStart] > data[pivotIndex]){
         int temp = data[tempStart];
         data[tempStart] = data[tempEnd];
@@ -31,11 +31,11 @@ public class Partition{
       }else if(data[tempStart] < data[pivotIndex]){
         tempStart ++;
       }
-      System.out.println("Start: " + tempStart);
-      System.out.println("End: " + tempEnd);
-      System.out.println(toString(data));
+      //System.out.println("Start: " + tempStart);
+      //System.out.println("End: " + tempEnd);
+      //System.out.println(toString(data));
     }
-    for(int c = start + 1; c < end + 1; c++){
+    for(int c = start; c < end + 1; c++){
       if(data[c] > data[pivotIndex]){
         int temp = data[c - 1];
         data[c - 1] = data[pivotIndex];
