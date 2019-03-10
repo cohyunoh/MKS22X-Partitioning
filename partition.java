@@ -9,13 +9,18 @@ public class Partition{
    */
   public int partition ( int [] data, int start, int end){
     int pivotIndex = Math.random() * 10 % data.length;
-    int first = data[0];
-    data[0] = data[pivotIndex];
+    int first = data[start];
+    data[start] = data[pivotIndex];
     data[pivotIndex] = first;
-    int end = data.length;
+    pivotIndex = start;
     for(int i = 1; i < end; i++){
-      if
+      int index = Math.random() * 10 % end + i;
+      if(data[index] < data[pivotIndex]){
+        int less = data[index];
+        data[index] = data[pivotIndex];
+        data[pivotIndex] = less;
+        pivotIndex = index;
+      }else if(data[index] < data[pivotIndex])
     }
   }
-
 }
